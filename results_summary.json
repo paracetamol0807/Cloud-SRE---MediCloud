@@ -1,0 +1,153 @@
+{
+  "security_tests": [
+    {
+      "Test": "Authorized doctor",
+      "Expected": "SUCCESS",
+      "Actual": "SUCCESS",
+      "Status": "PASS",
+      "Explanation": "Matching role, hospital and department attributes."
+    },
+    {
+      "Test": "Cross-hospital user",
+      "Expected": "ATTRIBUTE_POLICY_DENIED",
+      "Actual": "ATTRIBUTE_POLICY_DENIED",
+      "Status": "PASS",
+      "Explanation": "Hospital-B identity lacks hospital_a attribute."
+    },
+    {
+      "Test": "Cloud operator",
+      "Expected": "ATTRIBUTE_POLICY_DENIED",
+      "Actual": "ATTRIBUTE_POLICY_DENIED",
+      "Status": "PASS",
+      "Explanation": "Cloud operator does not satisfy the doctor policy."
+    },
+    {
+      "Test": "Expired access",
+      "Expected": "ACCESS_EXPIRED",
+      "Actual": "ACCESS_EXPIRED",
+      "Status": "PASS",
+      "Explanation": "The supplied authorization expiry is in the past."
+    },
+    {
+      "Test": "Modified ciphertext",
+      "Expected": "INTEGRITY_FAILED",
+      "Actual": "INTEGRITY_FAILED",
+      "Status": "PASS",
+      "Explanation": "Ciphertext hash no longer matches stored SHA-256 digest."
+    },
+    {
+      "Test": "Audit logging",
+      "Expected": "SUCCESS",
+      "Actual": "SUCCESS",
+      "Status": "PASS",
+      "Explanation": "Every attempted access produced an audit event with identity, record and result."
+    },
+    {
+      "Test": "Cloud-side plaintext visibility",
+      "Expected": "CIPHERTEXT_ONLY",
+      "Actual": "CIPHERTEXT_ONLY",
+      "Status": "PASS",
+      "Explanation": "Stored JSON contains nonce, ciphertext, digest and policy metadata, not the patient diagnosis."
+    },
+    {
+      "Test": "Searchable Encryption (SSE) query",
+      "Expected": "MATCH_FOUND",
+      "Actual": "MATCH_FOUND",
+      "Status": "PASS",
+      "Explanation": "Client generates blind trapdoor; cloud matches record without decrypting index."
+    },
+    {
+      "Test": "SSE Cloud Index privacy",
+      "Expected": "TRAPDOORS_ONLY",
+      "Actual": "TRAPDOORS_ONLY",
+      "Status": "PASS",
+      "Explanation": "Cloud search index contains only HMAC-SHA256 hex hashes, zero plaintext keywords."
+    },
+    {
+      "Test": "Proxy Re-Encryption cloud delegation",
+      "Expected": "SUCCESS",
+      "Actual": "SUCCESS",
+      "Status": "PASS",
+      "Explanation": "Semi-trusted cloud transformed ciphertext from Group A to Group B without seeing plaintext or keys."
+    },
+    {
+      "Test": "PRE departed staff revocation",
+      "Expected": "PRE_DECAPSULATION_FAILED",
+      "Actual": "PRE_DECAPSULATION_FAILED",
+      "Status": "PASS",
+      "Explanation": "Old group key cannot decapsulate the re-encrypted record, enforcing immediate cryptographic revocation."
+    },
+    {
+      "Test": "Multi-Authority authorized access",
+      "Expected": "SUCCESS",
+      "Actual": "SUCCESS",
+      "Status": "PASS",
+      "Explanation": "Credentials signed independently by Central Medical Council and Hospital-A both satisfy policy."
+    },
+    {
+      "Test": "Multi-Authority cross-org forgery rejection",
+      "Expected": "FAIL",
+      "Actual": "FAIL",
+      "Status": "PASS",
+      "Explanation": "Cross-hospital credential fails validation (MISSING_CREDENTIAL_Hospital-A); authorities cannot impersonate each other."
+    },
+    {
+      "Test": "Dynamic Trust elevation on valid activity",
+      "Expected": "SCORE_INCREASED",
+      "Actual": "SCORE_INCREASED",
+      "Status": "PASS",
+      "Explanation": "Trust score dynamically increased from 0.60 to 0.75 based on verified accesses."
+    },
+    {
+      "Test": "Dynamic Trust penalty and quarantine",
+      "Expected": "TRUST_SCORE_INSUFFICIENT",
+      "Actual": "TRUST_SCORE_INSUFFICIENT",
+      "Status": "PASS",
+      "Explanation": "Trust degraded to 0.35 (< 0.40 threshold); account is quarantined despite valid attributes."
+    },
+    {
+      "Test": "Traitor Tracing leak identification",
+      "Expected": "TRAITOR_IDENTIFIED_D-ROUGE-42",
+      "Actual": "TRAITOR_IDENTIFIED_D-ROUGE-42",
+      "Status": "PASS",
+      "Explanation": "Cryptographic watermark in leaked key precisely identified culprit (TRAITOR_IDENTIFIED_D-ROUGE-42)."
+    }
+  ],
+  "performance": [
+    {
+      "Records": 1,
+      "Avg encryption (ms)": 0.51875,
+      "Avg decryption (ms)": 0.079542,
+      "Avg policy check (ms)": 0.004041,
+      "Avg search query (ms)": 0.006666,
+      "Total encrypt+decrypt (ms)": 0.598292
+    },
+    {
+      "Records": 10,
+      "Avg encryption (ms)": 0.442008,
+      "Avg decryption (ms)": 0.06065,
+      "Avg policy check (ms)": 0.001096,
+      "Avg search query (ms)": 0.002954,
+      "Total encrypt+decrypt (ms)": 0.502658
+    },
+    {
+      "Records": 50,
+      "Avg encryption (ms)": 0.551127,
+      "Avg decryption (ms)": 0.055413,
+      "Avg policy check (ms)": 0.000763,
+      "Avg search query (ms)": 0.002609,
+      "Total encrypt+decrypt (ms)": 0.606541
+    },
+    {
+      "Records": 100,
+      "Avg encryption (ms)": 0.484326,
+      "Avg decryption (ms)": 0.056122,
+      "Avg policy check (ms)": 0.000721,
+      "Avg search query (ms)": 0.002621,
+      "Total encrypt+decrypt (ms)": 0.540448
+    }
+  ],
+  "all_tests_passed": true,
+  "total_tests": 16,
+  "passed_tests": 16
+}

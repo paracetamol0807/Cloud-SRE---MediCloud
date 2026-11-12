@@ -1,0 +1,57 @@
+# ==============================================================================
+# MediCloud .gitignore
+# ==============================================================================
+
+# Operating System Metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# IDE & Editor Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Office / Word / PowerPoint Temporary Lock Files
+~$*.docx
+~$*.pptx
+~$*.xlsx
+
+# MediCloud Benchmark & Ephemeral Runtime Artifacts
+# (Ignores 160+ temporary benchmark records, while keeping ehr001.json, ehr002.json, cloud_search_index.json)
+cloud_storage/bench_*.json
+/audit_log.json
+*.log
+*.tmp
+*.bak
+*_backup.*
+

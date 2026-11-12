@@ -1,0 +1,96 @@
+[
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-02",
+    "record": "ehr001",
+    "result": "ATTRIBUTE_POLICY_DENIED"
+  },
+  {
+    "user": "OP-01",
+    "record": "ehr001",
+    "result": "ATTRIBUTE_POLICY_DENIED"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "ACCESS_EXPIRED"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr002",
+    "result": "INTEGRITY_FAILED"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "PRE_DECAPSULATION_FAILED"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-01",
+    "record": "ehr001",
+    "result": "MISSING_CREDENTIAL_Hospital-A"
+  },
+  {
+    "user": "D-TRUST",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-TRUST",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-TRUST",
+    "record": "ehr001",
+    "result": "SUCCESS"
+  },
+  {
+    "user": "D-ATTACKER",
+    "record": "ehr001",
+    "result": "ATTRIBUTE_POLICY_DENIED"
+  },
+  {
+    "user": "D-ATTACKER",
+    "record": "ehr001",
+    "result": "TRUST_SCORE_INSUFFICIENT",
+    "trust": 0.3500000001606014
+  },
+  {
+    "user": "D-ATTACKER",
+    "record": "ehr001",
+    "result": "TRUST_SCORE_INSUFFICIENT",
+    "trust": 0.35000000032368633
+  },
+  {
+    "user": "D-ATTACKER",
+    "record": "ehr001",
+    "result": "TRUST_SCORE_INSUFFICIENT",
+    "trust": 0.350000000482632
+  },
+  {
+    "user": "D-ATTACKER",
+    "record": "ehr001",
+    "result": "TRUST_SCORE_INSUFFICIENT",
+    "trust": 0.3500000006465448
+  }
+]

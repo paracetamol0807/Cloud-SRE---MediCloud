@@ -1,0 +1,17 @@
+Test,Expected,Actual,Status,Explanation
+Authorized doctor,SUCCESS,SUCCESS,PASS,"Matching role, hospital and department attributes."
+Cross-hospital user,ATTRIBUTE_POLICY_DENIED,ATTRIBUTE_POLICY_DENIED,PASS,Hospital-B identity lacks hospital_a attribute.
+Cloud operator,ATTRIBUTE_POLICY_DENIED,ATTRIBUTE_POLICY_DENIED,PASS,Cloud operator does not satisfy the doctor policy.
+Expired access,ACCESS_EXPIRED,ACCESS_EXPIRED,PASS,The supplied authorization expiry is in the past.
+Modified ciphertext,INTEGRITY_FAILED,INTEGRITY_FAILED,PASS,Ciphertext hash no longer matches stored SHA-256 digest.
+Audit logging,SUCCESS,SUCCESS,PASS,"Every attempted access produced an audit event with identity, record and result."
+Cloud-side plaintext visibility,CIPHERTEXT_ONLY,CIPHERTEXT_ONLY,PASS,"Stored JSON contains nonce, ciphertext, digest and policy metadata, not the patient diagnosis."
+Searchable Encryption (SSE) query,MATCH_FOUND,MATCH_FOUND,PASS,Client generates blind trapdoor; cloud matches record without decrypting index.
+SSE Cloud Index privacy,TRAPDOORS_ONLY,TRAPDOORS_ONLY,PASS,"Cloud search index contains only HMAC-SHA256 hex hashes, zero plaintext keywords."
+Proxy Re-Encryption cloud delegation,SUCCESS,SUCCESS,PASS,Semi-trusted cloud transformed ciphertext from Group A to Group B without seeing plaintext or keys.
+PRE departed staff revocation,PRE_DECAPSULATION_FAILED,PRE_DECAPSULATION_FAILED,PASS,"Old group key cannot decapsulate the re-encrypted record, enforcing immediate cryptographic revocation."
+Multi-Authority authorized access,SUCCESS,SUCCESS,PASS,Credentials signed independently by Central Medical Council and Hospital-A both satisfy policy.
+Multi-Authority cross-org forgery rejection,FAIL,FAIL,PASS,Cross-hospital credential fails validation (MISSING_CREDENTIAL_Hospital-A); authorities cannot impersonate each other.
+Dynamic Trust elevation on valid activity,SCORE_INCREASED,SCORE_INCREASED,PASS,Trust score dynamically increased from 0.60 to 0.75 based on verified accesses.
+Dynamic Trust penalty and quarantine,TRUST_SCORE_INSUFFICIENT,TRUST_SCORE_INSUFFICIENT,PASS,Trust degraded to 0.35 (< 0.40 threshold); account is quarantined despite valid attributes.
+Traitor Tracing leak identification,TRAITOR_IDENTIFIED_D-ROUGE-42,TRAITOR_IDENTIFIED_D-ROUGE-42,PASS,Cryptographic watermark in leaked key precisely identified culprit (TRAITOR_IDENTIFIED_D-ROUGE-42).

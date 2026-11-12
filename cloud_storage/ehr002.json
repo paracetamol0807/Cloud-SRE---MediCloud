@@ -1,0 +1,11 @@
+{
+  "record_id": "ehr002",
+  "nonce": "fb1d162ae4a759f111596861",
+  "ciphertext": "d7a829e0e6a3a36fed5332499e6514e87ad84a735b74b68887f375d425742b861bb03ec435b7efac395a6aba9c4ff9f45ba556a271693b002c6e5fb5e89f453685674ba6c0c942cc56ec5dab290f9e17bd712d6ccc7d6599780469a7cbbdba49bcd992884aa0517ee126d8d49dfb3b92cd0f50c199f0dad730fa2a09e08cdba2e7ec5466feb35fb408388c155def03d099a8dc5bd6f6906fd5319511ca48353c",
+  "sha256": "02991c48fa6866ccba500a7aa41f738a9031a78f8a7a52f3175d1719dba6516a",
+  "required_attributes": [
+    "doctor",
+    "hospital_a",
+    "cardiology"
+  ]
+}
