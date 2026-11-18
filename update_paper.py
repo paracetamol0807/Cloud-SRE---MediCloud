@@ -50,7 +50,11 @@ def create_document():
     p_author = doc.add_paragraph()
     p_author.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p_author.paragraph_format.space_after = Pt(14)
-    r_author = p_author.add_run("MOHIT | Roll No.: 25BDA069\nDepartment of Data Science & Engineering, Indian Institute of Information Technology Dharwad\nCourse: Cloud SRE and Security")
+    r_author = p_author.add_run(
+        "Divyanshu (23BEC017)  |  Adnan Khan (23BEC028)  |  Harshit Tripathi (23BCS054)\n"
+        "Indian Institute of Information Technology Dharwad\n"
+        "Course: Cloud SRE and Security  •  Supervisor: Prof. Malay Kumar"
+    )
     r_author.font.size = Pt(10.5)
     r_author.font.color.rgb = RGBColor(50, 50, 50)
 

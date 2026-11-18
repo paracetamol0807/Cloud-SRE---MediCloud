@@ -6,7 +6,8 @@
 
 **Course:** Cloud SRE and Security  
 **Institution:** Indian Institute of Information Technology Dharwad  
-**Author:** MOHIT (Roll No.: 25BDA069)  
+**Authors:** Divyanshu (23BEC017), Adnan Khan (23BEC028), Harshit Tripathi (23BCS054)  
+**Supervisor:** Prof. Malay Kumar  
 **Theoretical Foundation:** Pan Jun Sun, *"Privacy Protection and Data Security in Cloud Computing: A Survey, Challenges, and Solutions"*, **IEEE Access**, vol. 7, 2019.
 
 ---
@@ -49,6 +50,7 @@ This implementation realizes all foundational cryptographic and SRE controls sur
 
 ```text
 cloud_sre_medicloud_submission/
+├── app.py                       # Interactive Web Application Dashboard (Flask)
 ├── medicloud.py                 # Core system, test suite runner, and microbenchmarks
 ├── README.md                    # Project documentation and guide
 ├── results_summary.json         # Consolidated test outcomes & benchmark JSON
@@ -88,10 +90,26 @@ cloud_sre_medicloud_submission/
 - Standard libraries + `cryptography`, `matplotlib`, `python-pptx`, `reportlab`:
 
 ```bash
-python3 -m pip install cryptography matplotlib python-pptx reportlab
+python3 -m pip install cryptography matplotlib python-pptx reportlab flask
 ```
 
-### Running the System
+### 1. Launching the Interactive Web Dashboard
+To access and demo the system through the visual web application:
+
+```bash
+python3 app.py
+```
+Then open your web browser to:
+👉 **[http://127.0.0.1:5000](http://127.0.0.1:5000)**
+
+#### Web Features Available in the Browser:
+- 🔍 **Search & Access Portal:** Execute blind keyword searches using HMAC-SHA256 trapdoors without decrypting records. Test authorized vs. cross-hospital doctor access.
+- 📤 **Record Upload:** Ingest new patient records with client-side AES-256-GCM encryption and keyword indexing.
+- 📊 **Dynamic Trust Simulator:** Interact with user trust meters, simulate attacks, and watch real-time account quarantine (< 0.40 score).
+- 🔄 **Proxy Re-Encryption Dashboard:** Simulate staff departure, trigger cloud-side re-encryption, and verify that departed staff are instantly locked out.
+- 🗄️ **Cloud Storage Inspector:** Direct view of raw files in `cloud_storage/`, proving zero plaintext diagnoses exist in the cloud repository.
+
+### 2. Running Automated CLI Tests & Microbenchmarks
 To execute the comprehensive **16-test security verification** and **microbenchmark evaluation**:
 
 ```bash

@@ -97,9 +97,9 @@ def build_pdf():
         title_style
     ))
     story.append(Paragraph(
-        "<b>MOHIT | Roll No.: 25BDA069</b><br/>"
-        "Department of Data Science & Engineering, Indian Institute of Information Technology Dharwad<br/>"
-        "Course: Cloud SRE and Security",
+        "<b>Divyanshu (23BEC017) &nbsp;|&nbsp; Adnan Khan (23BEC028) &nbsp;|&nbsp; Harshit Tripathi (23BCS054)</b><br/>"
+        "Indian Institute of Information Technology Dharwad<br/>"
+        "Course: Cloud SRE and Security &nbsp;•&nbsp; Supervisor: Prof. Malay Kumar",
         author_style
     ))
 

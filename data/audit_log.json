@@ -73,24 +73,24 @@
     "user": "D-ATTACKER",
     "record": "ehr001",
     "result": "TRUST_SCORE_INSUFFICIENT",
-    "trust": 0.3500000001606014
+    "trust": 0.35000000057948955
   },
   {
     "user": "D-ATTACKER",
     "record": "ehr001",
     "result": "TRUST_SCORE_INSUFFICIENT",
-    "trust": 0.35000000032368633
+    "trust": 0.3500000023187862
   },
   {
     "user": "D-ATTACKER",
     "record": "ehr001",
     "result": "TRUST_SCORE_INSUFFICIENT",
-    "trust": 0.350000000482632
+    "trust": 0.3500000043080912
   },
   {
     "user": "D-ATTACKER",
     "record": "ehr001",
     "result": "TRUST_SCORE_INSUFFICIENT",
-    "trust": 0.3500000006465448
+    "trust": 0.3500000046251548
   }
 ]

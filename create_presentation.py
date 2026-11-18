@@ -95,8 +95,9 @@ def build_presentation():
     p2.space_after = Pt(36)
 
     p3 = tf1.add_paragraph()
-    p3.text = "Based on Pan Jun Sun's IEEE Access (2019) Survey  •  Indian Institute of Information Technology Dharwad"
-    p3.font.size = Pt(12)
+    p3.text = "Divyanshu (23BEC017)  •  Adnan Khan (23BEC028)  •  Harshit Tripathi (23BCS054)\nSupervisor: Prof. Malay Kumar  •  Indian Institute of Information Technology Dharwad"
+    p3.font.size = Pt(13)
+    p3.font.bold = True
     p3.font.color.rgb = C_BLUE_CYAN
 
     # =========================================================================
